@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.Admin_button
+{
+    position: absolute;
+    left: 90%;
+    top: 15px;
+}
+.Admin_login_button
+{
+    position: absolute;
+    left: 80%;
+    top: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login_button
+{
+    width: 205px;
+    height: 30px;
+    border: none;
+    background-color: midnightblue;
+    color: white;
+}
+.login_button:hover{
+    background-color: #666666;
+    color: white;
+    cursor: pointer;
+
+}
+.House_button
+{
+    position: absolute;
+    left: 95%;
+    top: 20px;
+}
+.button-without-border-and-background {
+    background: transparent;
+    border: none;
+}
+.button-without-border-and-background :hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

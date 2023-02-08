@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+
+<div  style="margin: 0 auto; width: 80%; align-items: center; display: flex; justify-content: center;">
+  <div style="padding: 10px"><%= link_to image_tag("arrow-left-circle.svg"), products_path ,title:"Wróć do Listy produktów" , class: "button-without-border-and-background" %></div>
+  <div style="padding: 10px"><%= link_to image_tag("gear.svg"), edit_product_path(@product) ,title: "Edytuj ten produkt", class: "button-without-border-and-background" %> </div>
+  <div style="padding: 8px 4px"><%= button_to image_tag("trash.svg"), @product, method: :delete, title: "Usuń ten Produkt z Listy", class: "button-without-border-and-background" %></div>
+</div>

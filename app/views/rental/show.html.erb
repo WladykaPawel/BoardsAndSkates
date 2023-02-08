@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+
+<%= render @product %>
+
+<div style="margin: 0 auto; width: 80%; align-items: center; display: flex; justify-content: center;">
+  <div style="padding: 10px"><%= link_to image_tag("arrow-left-circle.svg"), root_path, title: "Wróć do Listy Produktów", class: "button-without-border-and-background" %></div>
+  <div style=" padding: 10px">
+    <% if @product.quantity > 0 %>
+      <%= button_to image_tag("check-circle.svg"), decrement_and_show_message_product_path(@product), method: :patch, title: "Wypożycz ten przedmiot", class: "button-without-border-and-background" %>
+    <% else %>
+      <%= "Artukuł niedostępny." %>
+      <br>
+      <%= "Ilość wyczerpana" %>
+    <% end %>
+
+  </div>
+</div>

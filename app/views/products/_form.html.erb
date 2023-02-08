@@ -1,0 +1,66 @@
+<style>
+    table{
+        margin: 0 auto;
+        width: 60%;
+        font-size: 30px;
+        border-radius: 20px;
+    }
+    .description_item
+    {
+        text-align: left;
+        padding-left: 100px;
+        color: midnightblue;
+    }
+    .field{
+        height: 40px;
+        padding-left: 10px;
+        width: 500px;
+        font-size: 25px;
+        text-decoration: none;
+        border-radius: 5px; /*up to date browsers support this, but you can add prefixes if you want*/
+
+        border: 0;
+    }
+</style>
+<div style="background-color: rgba(144, 144, 144, 0.85);
+  border-radius: 15px;">
+  <%= form_with(model: product) do |form| %>
+    <% if product.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+        <ul>
+          <% product.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <table>
+      <tr>
+        <td class="description_item"> Nazwa wypożyczanego przedmiotu</td>
+        <td style="text-align: center; padding: 15px 150px 15px 15px; "><%= form.text_field :title, class: "field"%></td>
+      </tr>
+      <tr>
+        <td class="description_item">Cena za wypożyczenie za dobę</td>
+        <td style="text-align: center; padding: 15px 150px 15px 15px; "><%= form.text_field :price, class: "field" %></td>
+      </tr>
+      <tr>
+        <td class="description_item">Dostępna ilość</td>
+        <td style="text-align: center; padding: 15px 150px 15px 15px; "><%= form.number_field :quantity, class: "field" %></td>
+      </tr>
+      <tr>
+        <td class="description_item">Ilość Wypożyczonych</td>
+        <td style="text-align: center; padding: 15px 150px 15px 15px; ">
+          <% value = form.object.borrowed.nil? ? 0 : form.object.borrowed %>
+          <%= form.number_field :borrowed, value: value, readonly: true, class: "field" %>
+        </td>
+      </tr>
+    </table>
+    <div style="margin: 0 auto; width: 80%; align-items: center; display: flex; justify-content: center;">
+      <button type="submit" style="align-items: center" class="button-without-border-and-background"><%= image_tag "check-circle.svg" %></button>
+    </div>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+
+<style>
+    table {
+        margin: 0 auto;
+        width: 80%;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(144, 144, 144, 0.85);
+        border-radius: 15px;
+    }
+    td{
+        font-size: 20px;
+    }
+    .item:hover{
+        background-color: #666666;
+    }
+</style>
+
+<div id="products">
+  <table border="1">
+    <tr>
+      <td style="padding: 15px"><strong>NAZWA PRODUKTU:</strong></td>
+      <td style="padding: 15px"><strong>CENA:</strong></td>
+      <td style="width: 150px;" ><strong>DOSTĘPNA <br> ILOŚĆ:</strong></td>
+    </tr>
+    <% @products.each do |product| %>
+      <tr class="item">
+        <td style="padding: 15px"><%= product.title %></td>
+        <td style="padding: 15px"><%= product.price %> zł</td>
+        <td style="padding: 15px"><%= product.quantity %></td>
+        <td>
+        <p>
+          <%= link_to image_tag("show_icon.svg"), rental_path(product), title: "Pokaż produkt", class: "button-without-border-and-background" %>
+
+        </p>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+

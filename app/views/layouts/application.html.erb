@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BoardsAndSkates</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+  </head>
+
+  <h1 style="background-color: midnightblue; margin:-16px -8px 30px -10px; color: white; padding: 40px 20px 20px 20px; text-align:left;" >WYPOŻYCZALNIA SPRZĘTU "SNOW"</h1>
+  <%= link_to image_tag("house.svg"), root_path, title: "Strona Główna" , class: "House_button button-without-border-and-background" %>
+  <%#= link_to image_tag("house.svg"), products_path, title: "Strona Główna" , class: "Admin_button" %>
+
+  <form action="/password/check" class="Admin_login_button" method="post" id="password_form">
+    <input style="height: 30px; width: 200px; border: none" type="password" name="password">
+    <input class="login_button" type="submit" value="Zaloguj na konto Administratora">
+  </form>
+
+  <body style="background: url('<%= asset_path "back.jpg" %>') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;">
+    <%= yield %>
+  </body>
+</html>

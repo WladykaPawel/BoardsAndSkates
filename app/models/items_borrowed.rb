@@ -1,0 +1,2 @@
+class ItemsBorrowed < ApplicationRecord
+end
